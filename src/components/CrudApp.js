@@ -44,7 +44,7 @@ const CrudApp = () => {
     const createData = (data) => {
       //createData recibe la data del formulario, hace una copia a través de
       //Spread Operator de lo que ya tiene en la DB y agrega el nuevo registro
-      data.id = Date.now;
+      data.id = Date.now();
       setDb([
         ...db,
         data
@@ -55,7 +55,19 @@ const CrudApp = () => {
       let newData = db.map(item => item.id === data.id ? data : item);
       setDb(newData);
     };
-    const deleteData = (id) => {};
+
+    const deleteData = (id) => {
+      let isDelete = window.confirm(
+        `¿Estás seguro de eliminar el registro Id ${id}?`
+      );
+
+      if (isDelete) {
+        let newData = db.filter(dato => dato.id !== id);
+        setDb(newData);
+      } else {
+        return;
+      }
+    };
 
     return( 
         <div>
