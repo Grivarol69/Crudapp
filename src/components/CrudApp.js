@@ -72,17 +72,19 @@ const CrudApp = () => {
     return( 
         <div>
             <h2>CRUD App</h2>
-            <CrudForm 
-              createData= {createData} //envía la función como Props
-              updateData= {updateData} 
-              dataToEdit= {dataToEdit} 
-              setDataToEdit={setDataToEdit}
-            />
-            <CrudTable 
-              data={ db }
-              setDataToEdit= {setDataToEdit}
-              deleteData= {deleteData}
-            />
+            <article className="grid-1-2">
+              <CrudForm 
+                createData= {createData} //envía la función como Props
+                updateData= {updateData} 
+                dataToEdit= {dataToEdit} 
+                setDataToEdit={setDataToEdit}
+              />
+              <CrudTable 
+                data={ db }
+                setDataToEdit= {setDataToEdit}
+                deleteData= {deleteData}
+              />
+            </article>
         </div>
     )
 }
